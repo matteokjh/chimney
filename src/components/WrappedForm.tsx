@@ -14,6 +14,7 @@ const DynamicFieldSet = (props: { form: any }) => {
             val: number;
         }
     );
+    const [label, setLabel] = useState([] as string[])
 
     // methods
     const caculate = (
@@ -38,6 +39,7 @@ const DynamicFieldSet = (props: { form: any }) => {
     const add = () => {
         setKeys(keys.concat(id));
         setId(id + 1);
+        setLabel(label.concat(`卡片 ${id + 1}`))
     };
     const handleSubmit = (e: Event) => {
         e.preventDefault();
@@ -80,10 +82,10 @@ const DynamicFieldSet = (props: { form: any }) => {
     const formItems = keys.map((k: number, index: number) => (
         <Form.Item
             className="card"
-            label={`卡片 ${index + 1}`}
             required={false}
             key={k}
         >
+            <p>{label[index]}</p>
             {/* A */}
             <Form.Item>
                 {getFieldDecorator(`A[${k}]`, {

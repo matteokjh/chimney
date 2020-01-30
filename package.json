@@ -40,5 +40,6 @@
   },
   "devDependencies": {
     "@types/antd": "^1.0.0"
-  }
+  },
+  "homepage": "/chimney"
 }
