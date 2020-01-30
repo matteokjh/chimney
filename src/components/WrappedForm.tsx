@@ -14,7 +14,7 @@ const DynamicFieldSet = (props: { form: any }) => {
             val: number;
         }
     );
-    const [label, setLabel] = useState([] as string[])
+    const [label, setLabel] = useState(['卡片 1'] as string[])
 
     // methods
     const caculate = (
@@ -85,7 +85,7 @@ const DynamicFieldSet = (props: { form: any }) => {
             required={false}
             key={k}
         >
-            <p>{label[index]}</p>
+            <p className='label'>{label[index]}：</p>
             {/* A */}
             <Form.Item>
                 {getFieldDecorator(`A[${k}]`, {
@@ -170,7 +170,7 @@ const DynamicFieldSet = (props: { form: any }) => {
             <Form.Item
                 style={{
                     position: "absolute",
-                    transform: 'translateX(460px)'
+                    transform: 'translateX(600px)'
                 }}
             >
                 <span
@@ -187,9 +187,9 @@ const DynamicFieldSet = (props: { form: any }) => {
                     className="dynamic-delete-button"
                     style={{
                         color: "rgb(225,225,225)",
-                        marginBottom: "26px",
-                        display: "flex",
-                        alignItems: "center"
+                        position: 'absolute',
+                        right: '-10px',
+                        top: '20%',
                     }}
                     type="minus-circle-o"
                     onClick={() => remove(k)}
@@ -201,7 +201,9 @@ const DynamicFieldSet = (props: { form: any }) => {
     return (
         <Form>
             {/* 关卡配置 */}
-            <Form.Item className="card" label="关卡配置(权重/%)：">
+            <Form.Item className="card">
+                {/* label */}
+                <p className='label'>关卡配置(权重/%)：</p>
                 {/* 权重A */}
                 <Form.Item>
                     {getFieldDecorator(`WA`, {
