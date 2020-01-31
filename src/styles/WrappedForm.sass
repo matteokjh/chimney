@@ -3,14 +3,35 @@
     align-items: center
     justify-content: center
     width: 100%
+    padding-right: 120px
     .label
         color: rgb(225,225,225)
         width: 130px
-        text-align: right
+        display: inline-flex
+        justify-content: flex-end
+        > p
+            position: relative
+            white-space: nowrap
+            overflow: hidden
+            text-overflow: ellipsis
+            &:hover > .edit-icon
+                display: block
+            .edit-icon
+                position: absolute
+                display: none
+                font-size: 12px
+                width: 100%
+                height: 20px
+                border-radius: 3px
+                bottom: 0
+                line-height: 20px
+                cursor: pointer
+                background-color: rgba(255,255,255,.4)
     input
         color: #333 !important
         margin-right: 8px
         width: 100px
+
 .higher
     position: absolute
     right: 50px
